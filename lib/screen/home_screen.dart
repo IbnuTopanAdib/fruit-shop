@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fruit_shop/const/palette.dart';
+import 'package:fruit_shop/widgets/discount.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -38,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
+        const Discount()
       ],
     );
   }
