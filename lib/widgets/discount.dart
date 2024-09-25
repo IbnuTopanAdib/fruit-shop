@@ -14,7 +14,7 @@ class _DiscountState extends State<Discount> {
 
   final double _scaleFactor = .8;
 
-  final double _height = 230.0;
+  final double _height = 200.0;
 
   @override
   void initState() {
@@ -67,8 +67,8 @@ class _DiscountState extends State<Discount> {
             alignment: Alignment.topCenter,
             child: Container(
               padding: const EdgeInsets.only(left: 20, top: 20),
-              height: 220,
-              width: MediaQuery.of(context).size.width - 20,
+              height: 180,
+              width: MediaQuery.of(context).size.width - 100,
               margin: const EdgeInsets.only(right: 5, left: 5),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
@@ -90,7 +90,7 @@ class _DiscountState extends State<Discount> {
       child: Column(
         children: [
           Container(
-            height: 250,
+            height: 200,
             color: Colors.white,
             child: PageView.builder(
               controller: pageController,

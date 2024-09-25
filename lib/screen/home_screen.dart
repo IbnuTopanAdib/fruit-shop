@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fruit_shop/const/palette.dart';
 import 'package:fruit_shop/widgets/discount.dart';
+import 'package:fruit_shop/widgets/item.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -57,13 +58,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ),
           const Discount(),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
             child: TabBar(
+              dividerColor: Colors.transparent,
               overlayColor: WidgetStateProperty.all(Colors.transparent),
               splashFactory: NoSplash.splashFactory,
-              automaticIndicatorColorAdjustment: false,
               indicatorColor: Colors.transparent,
-              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorSize: TabBarIndicatorSize.label,
               controller: _tabController,
               indicator: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -123,67 +124,55 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.all(20),
             height: 300,
             width: double.maxFinite,
             child: TabBarView(
               controller: _tabController,
               children: [
-                ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (_, i) {
-                      return GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            width: 200,
-                            height: 300,
-                            margin: const EdgeInsets.only(
-                                right: 10, top: 10, bottom: 0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                  image:
-                                      AssetImage("assets/images/discount1.png"),
-                                  fit: BoxFit.fitHeight),
-                            ),
-                          ));
-                    }),
-                ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: 5,
-                    itemBuilder: (_, i) {
-                      return GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            width: 200,
-                            height: 300,
-                            margin: const EdgeInsets.only(
-                                right: 10, top: 10, bottom: 0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                  image:
-                                      AssetImage("assets/images/discount1.png"),
-                                  fit: BoxFit.fitHeight),
-                            ),
-                          ));
-                    }),
-                Material(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.grey,
-                    ),
-                    title: Text("Content"),
-                  ),
+                GridView.builder(
+                  itemCount: 6,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 20,
+                      childAspectRatio: 0.6),
+                  itemBuilder: (context, index) {
+                    return Item();
+                  },
                 ),
-                Material(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.grey,
-                    ),
-                    title: Text("Content"),
-                  ),
+                GridView.builder(
+                  itemCount: 6,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 20,
+                      childAspectRatio: 0.6),
+                  itemBuilder: (context, index) {
+                    return Item();
+                  },
+                ),
+                GridView.builder(
+                  itemCount: 6,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 20,
+                      childAspectRatio: 0.6),
+                  itemBuilder: (context, index) {
+                    return Item();
+                  },
+                ),
+                GridView.builder(
+                  itemCount: 6,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 20,
+                      childAspectRatio: 0.6),
+                  itemBuilder: (context, index) {
+                    return Item();
+                  },
                 ),
               ],
             ),
