@@ -66,7 +66,6 @@ class _DiscountState extends State<Discount> {
           child: Align(
             alignment: Alignment.topCenter,
             child: Container(
-              padding: const EdgeInsets.only(left: 20, top: 20),
               height: 180,
               width: MediaQuery.of(context).size.width - 100,
               margin: const EdgeInsets.only(right: 5, left: 5),
@@ -86,12 +85,11 @@ class _DiscountState extends State<Discount> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 15),
+      padding: const EdgeInsets.only(top: 5),
       child: Column(
         children: [
           Container(
             height: 200,
-            color: Colors.white,
             child: PageView.builder(
               controller: pageController,
               itemCount: 5,

@@ -12,7 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
-  final TextEditingController _searchController = TextEditingController();
   late TabController _tabController;
 
   @override
@@ -24,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   void dispose() {
     _tabController.dispose();
-    _searchController.dispose();
+
     super.dispose();
   }
 
@@ -39,13 +38,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               children: [
                 Expanded(
                   child: TextField(
-                    controller: _searchController,
                     decoration: InputDecoration(
                       hintText: 'What do you want',
-                      hintStyle: Theme.of(context)
-                          .textTheme
-                          .bodySmall!
-                          .copyWith(color: Palette.greyColor),
+                      hintStyle:
+                          Theme.of(context).textTheme.bodySmall!.copyWith(
+                                color: Palette.blackColor,
+                              ),
                       prefixIcon: const Icon(Icons.search),
                       border: InputBorder.none,
                       contentPadding: const EdgeInsets.symmetric(vertical: 15),
@@ -64,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               overlayColor: WidgetStateProperty.all(Colors.transparent),
               splashFactory: NoSplash.splashFactory,
               indicatorColor: Colors.transparent,
-              indicatorSize: TabBarIndicatorSize.label,
+              indicatorSize: TabBarIndicatorSize.tab,
               controller: _tabController,
               indicator: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -80,45 +78,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
               tabs: [
                 Tab(
-                  child: Container(
-                    width: double.maxFinite,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Text("All"),
-                  ),
+                  text: 'All',
                 ),
                 Tab(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Text("Fruit"),
-                  ),
+                  text: 'Fruit',
                 ),
                 Tab(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Text("Nut"),
-                  ),
+                  text: 'Veggie',
                 ),
                 Tab(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Text("Other"),
-                  ),
+                  text: 'Other',
                 ),
               ],
             ),
