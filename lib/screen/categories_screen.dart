@@ -14,7 +14,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     return Column(
       children: [
         Container(
-          height: 250,
+          height: 280,
           child: Expanded(
             child: Padding(
               padding: const EdgeInsets.all(16),

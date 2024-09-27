@@ -6,6 +6,7 @@ import 'package:fruit_shop/providers/bottom_nav_provider.dart';
 import 'package:fruit_shop/screen/cart_screen.dart';
 import 'package:fruit_shop/screen/categories_screen.dart';
 import 'package:fruit_shop/screen/home_screen.dart';
+import 'package:fruit_shop/screen/order_screen.dart';
 import 'package:fruit_shop/screen/personal_screen.dart';
 import 'package:fruit_shop/widgets/main_appbar.dart';
 
@@ -25,14 +26,21 @@ class _MainScreenState extends ConsumerState<MainScreen> {
       body: switch (currentIndex) {
         0 => const HomeScreen(),
         1 => const CategoriesScreen(),
-        2 => const CartScreen(),
+        2 => const OrderScreen(),
         3 => const PersonalScreen(),
         _ => const Center(child: Text('Page not found')),
       },
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (index) {
-          ref.read(bottomNavProvider.notifier).navigateTo(index);
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const OrderScreen()),
+            );
+          } else {
+            ref.read(bottomNavProvider.notifier).navigateTo(index);
+          }
         },
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Palette.primary,
@@ -42,7 +50,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
           BottomNavigationBarItem(
               icon: Icon(Icons.grid_view_outlined), label: 'Categories'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined), label: 'Cart'),
+              icon: Icon(Icons.shopping_cart_outlined), label: 'Order'),
           BottomNavigationBarItem(
               icon: Icon(Icons.person_outline), label: 'Personal'),
         ],
