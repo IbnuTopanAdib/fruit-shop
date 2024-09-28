@@ -9,12 +9,12 @@ class Discount extends StatefulWidget {
 }
 
 class _DiscountState extends State<Discount> {
-  PageController pageController = PageController(viewportFraction: 0.85);
+  PageController pageController = PageController(viewportFraction: 0.8);
   var _currPageValue = 0.0;
 
   final double _scaleFactor = .8;
 
-  final double _height = 200.0;
+  final double _height = 160.0;
 
   @override
   void initState() {
@@ -60,22 +60,16 @@ class _DiscountState extends State<Discount> {
 
     return Transform(
       transform: matrix,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5),
-        child: GestureDetector(
-          child: Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              height: 180,
-              width: MediaQuery.of(context).size.width - 100,
-              margin: const EdgeInsets.only(right: 5, left: 5),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage("assets/images/discount1.png"))),
-            ),
+      child: GestureDetector(
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            height: 140,
+            width: MediaQuery.of(context).size.width - 70,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/images/discount1.png"))),
           ),
         ),
       ),
@@ -85,11 +79,10 @@ class _DiscountState extends State<Discount> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 5),
       child: Column(
         children: [
           Container(
-            height: 200,
+            height: 160,
             child: PageView.builder(
               controller: pageController,
               itemCount: 5,

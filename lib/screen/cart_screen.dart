@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_shop/const/palette.dart';
+import 'package:fruit_shop/widgets/cart_item.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -15,15 +16,13 @@ class _CartScreenState extends State<CartScreen> {
       children: [
         Expanded(
           child: ListView.builder(
-            itemCount: 100,
+            itemCount: 5,
             itemBuilder: (context, index) {
-              return Text('Jembinding');
+              return const CartItem();
             },
           ),
         ),
         Container(
-          color: Color.fromRGBO(210, 210, 210, 0.69),
-          padding: const EdgeInsets.all(8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

@@ -103,7 +103,7 @@ class Item extends StatelessWidget {
                   ],
                 ),
                 Positioned(
-                  bottom: 10,
+                  bottom: 2,
                   right: 2,
                   child: ElevatedButton(
                       onPressed: () {},

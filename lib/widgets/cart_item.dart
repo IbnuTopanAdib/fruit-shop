@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_shop/const/palette.dart';
+import 'package:fruit_shop/widgets/cart_item_fraction.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({super.key});
@@ -11,46 +13,29 @@ class CartItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          DecoratedBox(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/discount1.png',),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width: 80,
+              height: 80,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: const DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    'assets/images/discount1.png',
+                  ),
+                ),
               ),
             ),
           ),
-          Column(
-            children: [
-               Text(
-                      'Mango Arumanis',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .copyWith(fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left,
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    const Text('3lb / 1 Pack'),
-                    Row(
-                      children: [
-                        IconButton(onPressed: (){}, icon: Icon(Icons.add)),
-                        Text('1'),
-                        IconButton(onPressed: (){}, icon: Icon(Icons.remove)),
-
-                      ],
-                    ),
-                    RichText(text: TextSpan(
-                      text: 'total',
-                      children: [
-                        
-                      ]
-                    ))
-                    
-            ],
+          const Expanded(child: CartItemFraction()),
+          Checkbox(
+            value: true,
+            onChanged: (value) {},
+            activeColor: Palette.primary,
           )
         ],
-        
       ),
     );
   }
