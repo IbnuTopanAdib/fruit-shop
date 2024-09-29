@@ -23,7 +23,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   void dispose() {
     _tabController.dispose();
-
     super.dispose();
   }
 
@@ -52,48 +51,42 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ],
           ),
         ),
+        // Flexible widget digunakan untuk mengatur sisa ruang lebih fleksibel
         const Discount(),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: TabBar(
-            dividerColor: Colors.transparent,
-            overlayColor: WidgetStateProperty.all(Colors.transparent),
-            splashFactory: NoSplash.splashFactory,
-            indicatorColor: Colors.transparent,
-            indicatorSize: TabBarIndicatorSize.tab,
-            controller: _tabController,
-            indicator: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Colors.orange,
+        PreferredSize(
+          preferredSize: const Size.fromHeight(10),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: TabBar(
+              dividerColor: Colors.transparent,
+              overlayColor: WidgetStateProperty.all(Colors.transparent),
+              splashFactory: NoSplash.splashFactory,
+              indicatorColor: Colors.transparent,
+              indicatorSize: TabBarIndicatorSize.tab,
+              controller: _tabController,
+              indicator: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.orange,
+              ),
+              labelColor: Colors.white,
+              unselectedLabelColor: Colors.black,
+              unselectedLabelStyle: const TextStyle(
+                color: Colors.black,
+              ),
+              labelStyle: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+              tabs: const [
+                Tab(text: 'All'),
+                Tab(text: 'Fruit'),
+                Tab(text: 'Veggie'),
+                Tab(text: 'Other'),
+              ],
             ),
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.black,
-            unselectedLabelStyle: const TextStyle(
-              color: Colors.black,
-            ),
-            labelStyle: const TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-            tabs: [
-              Tab(
-                text: 'All',
-              ),
-              Tab(
-                text: 'Fruit',
-              ),
-              Tab(
-                text: 'Veggie',
-              ),
-              Tab(
-                text: 'Other',
-              ),
-            ],
           ),
         ),
-        Container(
-          padding: const EdgeInsets.all(20),
-          height: 268,
-          width: double.maxFinite,
+        // Flexible untuk membuat GridView mengambil sisa ruang yang ada
+        Flexible(
           child: TabBarView(
             controller: _tabController,
             children: [
@@ -105,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     crossAxisSpacing: 7,
                     childAspectRatio: 0.65),
                 itemBuilder: (context, index) {
-                  return Item();
+                  return const Item();
                 },
               ),
               GridView.builder(
@@ -116,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     crossAxisSpacing: 7,
                     childAspectRatio: 0.65),
                 itemBuilder: (context, index) {
-                  return Item();
+                  return const Item();
                 },
               ),
               GridView.builder(
@@ -127,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     crossAxisSpacing: 7,
                     childAspectRatio: 0.65),
                 itemBuilder: (context, index) {
-                  return Item();
+                  return const Item();
                 },
               ),
               GridView.builder(
@@ -138,12 +131,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     crossAxisSpacing: 7,
                     childAspectRatio: 0.65),
                 itemBuilder: (context, index) {
-                  return Item();
+                  return const Item();
                 },
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

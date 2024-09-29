@@ -14,7 +14,7 @@ class _DiscountState extends State<Discount> {
 
   final double _scaleFactor = .8;
 
-  final double _height = 160.0;
+  final double _height = 150.0;
 
   @override
   void initState() {
@@ -64,8 +64,8 @@ class _DiscountState extends State<Discount> {
         child: Align(
           alignment: Alignment.topCenter,
           child: Container(
-            height: 140,
-            width: MediaQuery.of(context).size.width - 70,
+            height: 130,
+            width: MediaQuery.of(context).size.width - 100,
             decoration: BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.cover,
@@ -78,32 +78,30 @@ class _DiscountState extends State<Discount> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Container(
-            height: 160,
-            child: PageView.builder(
-              controller: pageController,
-              itemCount: 5,
-              physics: BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return _buildPageItem(index);
-              },
-            ),
+    return Column(
+      children: [
+        Container(
+          height: 150,
+          child: PageView.builder(
+            controller: pageController,
+            itemCount: 5,
+            physics: BouncingScrollPhysics(),
+            itemBuilder: (context, index) {
+              return _buildPageItem(index);
+            },
           ),
-          DotsIndicator(
-            dotsCount: 5,
-            position: _currPageValue.floor(),
-            decorator: DotsDecorator(
-              size: const Size.square(9.0),
-              activeSize: const Size(18.0, 9.0),
-              activeShape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0)),
-            ),
+        ),
+        DotsIndicator(
+          dotsCount: 5,
+          position: _currPageValue.floor(),
+          decorator: DotsDecorator(
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
